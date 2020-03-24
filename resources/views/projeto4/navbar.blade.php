@@ -7,7 +7,10 @@
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto">
             <li @if($current == "home") class="nav-item active" @else class="nav-item" @endif>
-                <a class="nav-link" href="/projeto4">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li @if($current == "home") class="nav-item active" @else class="nav-item" @endif>
+                <a class="nav-link" href="/projeto4">Projeto 4 <span class="sr-only">(current)</span></a>
             </li>
             <li @if($current == "desenvolvedores") class="nav-item active" @else class="nav-item" @endif>
                 <a class="nav-link" href="/projeto4/desenvolvedores">Desenvolvedores <span class="sr-only">(current)</span></a>

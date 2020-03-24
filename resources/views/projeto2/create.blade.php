@@ -49,8 +49,9 @@
                                 </div>
                             @endif
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-                        <button type="cancel" class="btn btn-secondary btn-sm">Cancelar</button>
+                        <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+                        <button type="reset" class="btn btn-warning btn-sm">Cancelar</button>
+                        <a href="{{ route('projeto2.index') }}" class="btn btn-secondary btn-sm">Voltar</a>
                     </form>
                 </div>
 

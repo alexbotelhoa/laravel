@@ -7,13 +7,27 @@
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto">
             <li @if($current == "home") class="nav-item active" @else class="nav-item" @endif>
-                <a class="nav-link" href="/projeto1">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li @if($current == "home") class="nav-item active" @else class="nav-item" @endif>
+                <a class="nav-link" href="{{ route('projeto1') }}">Projeto 1 <span class="sr-only">(current)</span></a>
             </li>
             <li @if($current == "categorias") class="nav-item active" @else class="nav-item" @endif>
-                <a class="nav-link" href="/projeto1/categorias">Categorias <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('projeto1.categorias') }}">Categorias <span class="sr-only">(current)</span></a>
             </li>
             <li @if($current == "produtos") class="nav-item active" @else class="nav-item" @endif>
-                <a class="nav-link" href="/projeto1/produtos">Produtos <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('projeto1.produtos') }}">Produtos <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
         </ul>
 

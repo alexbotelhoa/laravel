@@ -11,6 +11,7 @@ class ControladorCategoria extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth');
         $this->categoria = new Categoria();
     }
 

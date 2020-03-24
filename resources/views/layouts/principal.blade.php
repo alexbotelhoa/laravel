@@ -10,6 +10,7 @@
     <div class="col1">
         <div class="menu">
             <ul>
+                <li><a href="{{route('home')}}">Home</a></li>
                 <li><a class="{{request()->routeIs('cliente.*') ? 'active' : ''}}" href="{{route('cliente.index')}}">Clientes</a></li>
                 <li><a class="{{request()->routeIs('produtos') ? 'active' : ''}}" href="{{route('produtos')}}">Produtos</a></li>
                 <li><a class="{{request()->routeIs('departamentos') ? 'active' : ''}}" href="{{route('departamentos')}}">Departamentos</a></li>

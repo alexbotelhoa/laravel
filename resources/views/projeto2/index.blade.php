@@ -37,7 +37,8 @@
                         <tfoot>
                         <tr>
                             <td colspan="5">
-                                <a href="{{ route('projeto2.create') }}" class="btn btn-primary">Adicionar</a>
+                                <a href="{{ route('home') }}" class="btn btn-primary btn-sm">Home</a>
+                                <a href="{{ route('projeto2.create') }}" class="btn btn-success btn-sm">Adicionar</a>
                             </td>
                         </tr>
                         </tfoot>

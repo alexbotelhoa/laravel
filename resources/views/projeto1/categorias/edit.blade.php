@@ -13,7 +13,8 @@
                     <label for="nome">Nome da Categoria</label>
                     <input type="text" class="form-control" name="nome" id="nome" placeholder="Categoria" value="{{ $categoria->nome }}">
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+                <a href="{{ route('projeto1.categorias') }}" class="btn btn-secondary btn-sm">Voltar</a>
             </form>
         </div>
     </div>

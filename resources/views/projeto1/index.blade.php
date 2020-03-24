@@ -10,7 +10,7 @@
                         <p class="card-text">
                             Aqui você cadastra todas as suas categorias.
                         </p>
-                        <a href="{{ route('categorias.create') }}" class="btn btn-primary">Cadastre suas categorias</a>
+                        <a href="{{ route('projeto1.categorias') }}" class="btn btn-primary">Cadastre suas categorias</a>
                     </div>
                 </div>
                 <div class="card border border-primary">
@@ -19,7 +19,7 @@
                         <p class="card-text">
                             Aqui você cadastra todos os seus produtos.
                         </p>
-                        <a href="{{ route('produtos.create') }}" class="btn btn-primary">Cadastre seus produtos</a>
+                        <a href="{{ route('projeto1.produtos') }}" class="btn btn-primary">Cadastre seus produtos</a>
                     </div>
                 </div>
             </div>

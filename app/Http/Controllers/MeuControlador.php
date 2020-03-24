@@ -6,33 +6,44 @@ use Illuminate\Http\Request;
 
 class MeuControlador extends Controller
 {
-    public function familia() {
-        $familia = MeuControlador::pai();
-        $familia .= MeuControlador::mae();
-        $familia .= MeuControlador::filho1();
-        $familia .= MeuControlador::filho2();
-        $familia .= MeuControlador::pet();
+    public $familia;
 
-        return $familia;
+    public function __construct()
+    {
+        $this->familia = "<p><a href='/'>Voltar</a></p>";
+    }
+
+    public function familia() {
+        $this->familia .= "<a href='/pai'>" . MeuControlador::pai() . "</a>";
+        $this->familia .= "<a href='/mae'>" . MeuControlador::mae() . "</a>";
+        $this->familia .= "<a href='/filho1'>" . MeuControlador::filho1() . "</a>";
+        $this->familia .= "<a href='/filho2'>" . MeuControlador::filho2() . "</a>";
+        $this->familia .= "<a href='/pet'>" . MeuControlador::pet() . "</a>";
+        return $this->familia;
     }
 
     public static function pai() {
-        return "Alex Botelho<br>";
+        $familia = "<p>Alex Botelho | <a href='/familia'>Voltar</a></p>";
+        return $familia;
     }
 
-    public static function mae() {
-        return "Luciana Botelho<br>";
+    public function mae() {
+        $familia = "<p>Luciana Botelho | <a href='/familia'>Voltar</a></p>";
+        return $familia;
     }
 
-    public static function filho1() {
-        return "Marcel Botelho<br>";
+    public function filho1() {
+        $familia = "<p>Marcel Botelho | <a href='/familia'>Voltar</a></p>";
+        return $familia;
     }
 
-    public static function filho2() {
-        return "Ítalo Botelho<br>";
+    public function filho2() {
+        $familia = "<p>Ítalo Botelho | <a href='/familia'>Voltar</a></p>";
+        return $familia;
     }
 
-    public static function pet() {
-        return "Nina Botelho<br>";
+    public function pet() {
+        $familia = "<p>Nina Botelho | <a href='/familia'>Voltar</a></p>";
+        return $familia;
     }
 }

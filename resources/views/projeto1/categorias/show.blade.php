@@ -6,7 +6,7 @@
 
     <div class="card border">
         <div class="card-body">
-            <form action="{{ route('categorias.index') }}" method="GET">
+            <form action="{{ route('projeto1.categorias') }}" method="GET">
                 @csrf
                 <div class="form-group">
                     <label for="nome">Nome da Categoria</label>
