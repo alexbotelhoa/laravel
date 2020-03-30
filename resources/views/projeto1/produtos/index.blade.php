@@ -37,7 +37,7 @@
                             <label for="nomeProduto" class="control-label">Nome</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="nomeProduto" placeholder="Nome do Produto">
-                            </div>
+                             </div>
                         </div>
                         <div class="form-group">
                             <label for="estoqueProduto" class="control-label">Estoque</label>
@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label for="precoProduto" class="control-label">Preço</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="precoProduto" placeholder="Preço do Produto">
+                                <input type="number" class="form-control" id="precoProduto" placeholder="Preço do Produto">|
                             </div>
                         </div>
                         <div class="form-group">
@@ -79,8 +79,8 @@
         });
 
         function indexProdutos() {
-            $.getJSON('/api/projeto1/produtos', function (produto) {
-                console.log(produto);
+            $.getJSON('/laravel/public/api/projeto1/produtos', function (produto) {
+                //console.log(produto);
                 for (i = 0; i < produto.length; i++) {
                     row = linhaProduto(produto[i]);
                     $('#tabelaProdutos>tbody').append(row);
@@ -105,10 +105,10 @@
         }
 
         function listarCategorias() {
-            $.getJSON('/api/projeto1/categorias', function (produto) {
-                console.log(produto);
-                for (i = 0; i < produto.length; i++) {
-                    select = '<option value="' + produto[i].id + '">' + produto[i].nome + '</option>';
+            $.getJSON('/laravel/public/api/projeto1/categorias', function (categoria) {
+                //console.log(categoria);
+                for (i = 0; i < categoria.length; i++) {
+                    select = '<option value="' + categoria[i].id + '">' + categoria[i].nome + '</option>';
                     $('#categoriaProduto').append(select);
                 }
             });
@@ -116,10 +116,10 @@
 
         function createProduto() {
             $('#id').val('');
-            $('#nomeProduto').val('');
-            $('#estoqueProduto').val('');
-            $('#precoProduto').val('');
-            $('#categoriaProduto').val('');
+            $('#nomeProduto').attr('readonly', false).val('');
+            $('#estoqueProduto').attr('readonly', false).val('');
+            $('#precoProduto').attr('readonly', false).val('');
+            $('#categoriaProduto').attr('disabled', false).val('');
             $('#modalProduto').modal('show');
             $('#salvar').show();
         }
@@ -141,7 +141,7 @@
                 preco: $('#precoProduto').val(),
                 categoria_id: $('#categoriaProduto').val()
             };
-            $.post("/api/projeto1/produtos", produto, function (data) {
+            $.post("/laravel/public/api/projeto1/produtos", produto, function (data) {
                 produto = JSON.parse(data);
                 row = linhaProduto(produto);
                 $('#tabelaProdutos>tbody').append(row);
@@ -149,26 +149,26 @@
         }
 
         function showProduto(id) {
-            $.getJSON('/api/projeto1/produtos/' + id, function (produto) {
-                console.log(produto);
+            $.getJSON('/laravel/public/api/projeto1/produtos/' + id, function (produto) {
+                //console.log(produto);
                 $('#id').val(produto.id);
-                $('#nomeProduto').val(produto.nome);
-                $('#estoqueProduto').val(produto.estoque);
-                $('#precoProduto').val(produto.preco);
-                $('#categoriaProduto').val(produto.categoria_id);
+                $('#nomeProduto').attr('readonly', true).val(produto.nome);
+                $('#estoqueProduto').attr('readonly', true).val(produto.estoque);
+                $('#precoProduto').attr('readonly', true).val(produto.preco);
+                $('#categoriaProduto').attr('disabled', true).val(produto.categoria_id);
                 $('#modalProduto').modal('show');
                 $('#salvar').hide();
             });
         }
 
         function editProduto(id) {
-            $.getJSON('/api/projeto1/produtos/' + id + '/edit', function (produto) {
-                console.log(produto);
+            $.getJSON('/laravel/public/api/projeto1/produtos/' + id + '/edit', function (produto) {
+                //console.log(produto);
                 $('#id').val(produto.id);
-                $('#nomeProduto').val(produto.nome);
-                $('#estoqueProduto').val(produto.estoque);
-                $('#precoProduto').val(produto.preco);
-                $('#categoriaProduto').val(produto.categoria_id);
+                $('#nomeProduto').attr('readonly', false).val(produto.nome);
+                $('#estoqueProduto').attr('readonly', false).val(produto.estoque);
+                $('#precoProduto').attr('readonly', false).val(produto.preco);
+                $('#categoriaProduto').attr('disabled', false).val(produto.categoria_id);
                 $('#modalProduto').modal('show')
                 $('#salvar').show();
             });
@@ -184,12 +184,12 @@
             };
             $.ajax({
                 type: "PUT",
-                url: "/api/projeto1/produtos/" + id,
+                url: "/laravel/public/api/projeto1/produtos/" + id,
                 context: this,
                 data: produto,
                 success: function (produto) {
                     produtoJSON = JSON.parse(produto);
-                    console.log(produtoJSON);
+                    //console.log(produtoJSON);
                     linhas = $("#tabelaProdutos>tbody>tr");
                     e = linhas.filter(function (i, elemento) {
                         return elemento.cells[0].textContent == produtoJSON.id;
@@ -211,7 +211,7 @@
         function deleteProduto(id) {
             $.ajax({
                 type: "DELETE",
-                url: "/api/projeto1/produtos/" + id,
+                url: "/laravel/public/api/projeto1/produtos/" + id,
                 context: this,
                 success: function () {
                     linhas = $("#tabelaProdutos>tbody>tr");
