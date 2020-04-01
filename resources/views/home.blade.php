@@ -23,6 +23,7 @@
                         <p><a href="{{ route('projeto2.index') }}">Projeto 2 - Alertas e Validações</a></p>
                         <p><a href="{{ route('projeto3.usuarios') }}">Projeto 3 - Testar Middlewares</a></p>
                         <p><a href="{{ route('projeto4.index') }}">Projeto 4 - ORM Muitos-para-Muitos</a></p>
+                        <p><a href="{{ route('projeto5.index') }}">Projeto 5 - Projeto de paginação</a></p>
 
                 </div>
             </div>

@@ -20,3 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('/projeto1/categorias', 'ControladorCategoria');
 Route::resource('/projeto1/produtos', 'ControladorProduto');
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Route::resource('/projeto5', 'AlunoController');

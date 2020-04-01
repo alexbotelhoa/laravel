@@ -23,6 +23,20 @@ Route::get('/', function () {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+Route::get('/home', 'HomeController@index')
+    ->name('home');
+
+Auth::routes();
+
+Route::get('/admin', 'HomeController@admin')
+    ->name('admin')
+    ->middleware('admin');
+
+//Route::get('/admin', 'Auth\AdminController@showAdminForm')->name('admin');
+//Route::post('/admin', 'Auth\AdminController@login');
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Route::get('/variavel/{nome?}', function ($nome = null) {
     $return = "<p>Variável => /variavel/'$nome'</p>";
     $return .= "<p><a href='/'>Voltar</a></p>";
@@ -277,17 +291,7 @@ Route::prefix('/projeto4')->group(function () {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/home', 'HomeController@index')
-    ->name('home');
+//Route::get('/projeto5', 'AlunoController@indexView');
 
-Auth::routes();
-
-Route::get('/admin', 'HomeController@admin')
-    ->name('admin')
-    ->middleware('admin');
-
-//Route::get('/admin', 'Auth\AdminController@showAdminForm')->name('admin');
-//Route::post('/admin', 'Auth\AdminController@login');
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+Route::get('/projeto5', 'AlunoController@indexViewJs');
+Route::get('/projeto5/json', 'AlunoController@indexJSON');
